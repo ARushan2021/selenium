@@ -71,7 +71,7 @@ public class Lesson1 {
         assertEquals(id_number, actualId.getText(), "Страница с нужным ID не открылась" );
         //Шаг.5 Отмена
         driver.findElement(
-                By.xpath("//td[text()='Питер']//parent::tr//td[contains(@class, 'cell-name')]"))
+                By.xpath("//td[text()='Питер']//parent::tr//td[contains(@class, 'cell-name')]"));
 
 
 
