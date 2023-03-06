@@ -20,7 +20,7 @@ public class TestBusinessTrip {
     @BeforeEach
     public void before() {
         // Открываем нужную страницу и разворачиваем ее во весь экран
-        System.setProperty("webdriver.chrome.driver", "driver/chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver", "src/main/java/resources/chromedriver.exe");
         driver = new ChromeDriver();
         driver.get("http://training.appline.ru/user/login");
         wait = new WebDriverWait(driver, Duration.ofSeconds(10));
