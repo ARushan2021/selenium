@@ -96,7 +96,7 @@ public class TestBusinessTrip {
         String field_return_date = driver.findElement(
                 By.xpath("//input[@name='crm_business_trip[returnDatePlan]']")).getAttribute("value");
         // Проверка заполнения полей
-        assertAll("Следующее поле заполнено не вено: ",
+        assertAll("Следующее поле заполнено не верно: ",
                 () -> assertEquals("Research & Development", division_field, "Подразделение"),
                 () -> assertEquals("(Хром) Призрачная Организация Охотников",
                         organization_field, "Организация"),
