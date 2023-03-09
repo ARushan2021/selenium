@@ -1,25 +1,19 @@
 package ibs_selenium;
-
-import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.assertAll;
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
 import java.time.Duration;
-
 import static org.openqa.selenium.support.ui.ExpectedConditions.invisibilityOf;
 import static org.openqa.selenium.support.ui.ExpectedConditions.visibilityOf;
 
 public class TestBusinessTrip {
-
     private WebDriver driver;
     private WebDriverWait wait;
-
     @BeforeEach
     public void before() {
         // Открываем нужную страницу и разворачиваем ее во весь экран
@@ -30,7 +24,6 @@ public class TestBusinessTrip {
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         driver.manage().window().maximize();
     }
-
     @Test
     public void test() {
         //Шаг.1 Авторизация
@@ -81,41 +74,38 @@ public class TestBusinessTrip {
         //Нажимаем кнопку сохранить, что-бы введенное значения сохранились в тэгах, атрибутах value, checked
         driver.findElement(By.xpath("//button[@class='btn btn-success main-group action-button']")).click();
         loading();
-        // Проверка поля "Подразделение"
+        //Значение поля "Подразделение"
         String division_field = driver.findElement(
                 By.xpath("//span[contains(text(), 'Research & Development')]")).getText();
-        String division_field_expected = "Research & Development";
-        assertEquals(division_field, division_field_expected, "Поле Подразделение заполнена не верно");
-        // Проверка поля "Принимающая организация"
+        //Значение поля "Принимающая организация"
         String organization_field = driver.findElement(
                 By.xpath("//input[@data-ftid='crm_business_trip_company']")).getAttribute("value");
-        String organization_expected = "(Хром) Призрачная Организация Охотников";
-        assertEquals(organization_expected, organization_field, "Поле организация заполнена не верно");
-        // Проверка чек-бокса "Задачи"
+        //Значение поля чек-бокс "Задачи"
         String field_checkbox = driver.findElement(
                 By.xpath("//input[@data-ftid='crm_business_trip_tasks_1']")).getAttribute("checked");
-        String checkbox = "true";
-        assertEquals(checkbox, field_checkbox, "Поле задача проставлено не верно");
-        //Проверка поля "Город выбытия"
+        //Значение поля "Город выбытия"
         String field_city_disposal = driver.findElement(
                 By.xpath("//input[@name='crm_business_trip[departureCity]']")).getAttribute("value");
-        String city_disposal = "Россия, Москва";
-        assertEquals(city_disposal, field_city_disposal, "Поле Город выбытия заполнено не верно");
-        //Проверка поля "Город прибытия"
+        //Значение поля "Город прибытия"
         String field_city_arrival = driver.findElement(
                 By.xpath("//input[@name='crm_business_trip[arrivalCity]']")).getAttribute("value");
-        String city_arrival = "Санкт-Петербург";
-        assertEquals(city_arrival, field_city_arrival, "Поле Город прибытия заполнено не верно");
-        //Проверка даты выбытия
+        //Значение поля "даты выбытия"
         String field_departure_date = driver.findElement(
                 By.xpath("//input[@name='crm_business_trip[departureDatePlan]']")).getAttribute("value");
-        String departure_date = "2023-03-04";
-        assertEquals(departure_date, field_departure_date, "Поле даты выбытия заполнено не верно");
-        //Проверка даты прибытия
+        //Значение поля "даты прибытия"
         String field_return_date = driver.findElement(
                 By.xpath("//input[@name='crm_business_trip[returnDatePlan]']")).getAttribute("value");
-        String return_date = "2023-04-04";
-        assertEquals(return_date, field_return_date, "Поле даты прибытия заполнено не верно");
+        // Проверка заполнения полей
+        assertAll("Следующее поле заполнено не вено: ",
+                () -> assertEquals("Research & Development", division_field, "Подразделение"),
+                () -> assertEquals("(Хром) Призрачная Организация Охотников",
+                        organization_field, "Организация"),
+                () -> assertEquals("true", field_checkbox, "Поле задача"),
+                () -> assertEquals("Россия, Москва", field_city_disposal, "Город выбытия"),
+                () -> assertEquals("Санкт-Петербург", field_city_arrival, "Город прибытия"),
+                () -> assertEquals("2023-03-04", field_departure_date, "Даты выбытия"),
+                () -> assertEquals("2023-04-04", field_return_date, "Даты прибытия")
+        );
         //Нажимаем кнопку "Сохранить и закрыть"
         driver.findElement(By.xpath("//button[contains(text(), 'Сохранить и закрыть')]")).click();
         loading();
@@ -131,12 +121,10 @@ public class TestBusinessTrip {
         System.out.println("Сообщение:" +
                 " 'Список командируемых сотрудников не может быть пустым' успешно сформировалось!!!");
     }
-
     @AfterEach
     public void after() {
         driver.quit();
     }
-
     public void loading() {
         //Проверка загрузки
         wait.until(invisibilityOf(driver.findElement(
