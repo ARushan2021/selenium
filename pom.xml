@@ -71,7 +71,7 @@
         <version>3.0.0-M5</version>
         <configuration>
           <testFailureIgnore>true</testFailureIgnore>
-          <!-- Маска файликов, которые будут запущенны -->
+          <!-- Маска файликов, которые будут запущенны  -->
           <includes>**/TestBusinessTripSecond.java</includes>
           <argLine>
             <!-- Сколько оперативной памяти выделяем для запуска тестов -->
