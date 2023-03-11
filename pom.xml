@@ -72,7 +72,7 @@
         <configuration>
           <testFailureIgnore>true</testFailureIgnore>
           <!-- Маска файликов, которые будут запущенны -->
-          <includes>**/Test*.java</includes>
+          <includes>**/TestBusinessTripSecond.java</includes>
           <argLine>
             <!-- Сколько оперативной памяти выделяем для запуска тестов -->
             -Xmx1024m

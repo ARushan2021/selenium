@@ -22,10 +22,11 @@ class TestBusinessTripSecond extends BasePage {
     private final AssertFilledFieldBTPage assertFilledFieldBTPage = new AssertFilledFieldBTPage();
     private final ErrorMessagePage errorMessagePage = new ErrorMessagePage();
     private final ErrorMessageStep errorMessageStep = new ErrorMessageStep();
+    private final BaseTestAssert baseTestAssert = new BaseTestAssert();
 
     @Test
     void test() {
-        //Шаг.1 Авторизация
+        //Авторизация
         loginSteps
                 .login(properties.getProperty("LOGIN"),
                     properties.getProperty("PASSWORD"))
@@ -37,30 +38,12 @@ class TestBusinessTripSecond extends BasePage {
                             properties.getProperty("returnDate"))
                 //Нажимаем кнопку сохранить, что-бы введенное значения сохранились в тэгах, атрибутах value, checked
                 .assertBT();
-
-        assertAll("Следующее поле заполнено не верно: ",
-                () -> assertEquals(properties.getProperty("Division"),
-                        assertFilledFieldBTPage.getDivisionField(), "Подразделение"),
-                () -> assertEquals("(Хром) Призрачная Организация Охотников",
-                        assertFilledFieldBTPage.getOrganizationField(), "Организация"),
-                () -> assertEquals(properties.getProperty("Checkbox"),
-                        assertFilledFieldBTPage.getFieldCheckbox(), "Поле задача"),
-                () -> assertEquals("Россия, Москва",
-                        assertFilledFieldBTPage.getFieldCityDisposal(), "Город выбытия"),
-                () -> assertEquals(properties.getProperty("inputArrivalCity"),
-                        assertFilledFieldBTPage.getFieldCityArrival(), "Город прибытия"),
-                () -> assertEquals(properties.getProperty("departureDate"),
-                        assertFilledFieldBTPage.getFieldDepartureDate(), "Даты выбытия"),
-                () -> assertEquals(properties.getProperty("returnDate"),
-                        assertFilledFieldBTPage.getFieldReturnDate(), "Даты прибытия")
-        );
+        // Проверка заполнения полей
+        baseTestAssert.AssertAllBT();
         //Нажимаем кнопку "Сохранить и закрыть"
         errorMessageStep.saveAndClose();
         // Проверка, что на странице появилось сообщение: "Список командируемых сотрудников не может быть пустым"
-        // На странице два тэга с таким xpath, мы выбираем первый.
-        String validation_failed = "Список командируемых сотрудников не может быть пустым";
-        assertEquals(validation_failed, errorMessagePage.getValidationFailed(), "Нет сообщения сообщение:" +
-                "'Список командируемых сотрудников не может быть пустым'");
+        baseTestAssert.assertEqualsBT();
 
         errorMessageStep.printErrorMessage();
     }
