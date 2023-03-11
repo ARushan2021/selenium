@@ -35,4 +35,5 @@ class TestBusinessTripSecond extends BaseTest {
 1) Значения для проверки подтягиваются из environment.properties, кроме трех полей,
 которые заполняются на кирилице. Сначала все было успешно,
 потом java начала читать значения из файлики не в той кодировке. Кодировка везде стоит UTF-8
+main/java/ru/appline/project/pages/AssertFilledFieldBTPage - AssertAllBT()
  */
