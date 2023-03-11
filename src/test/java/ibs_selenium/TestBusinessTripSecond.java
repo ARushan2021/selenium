@@ -49,5 +49,6 @@ class TestBusinessTripSecond extends BasePage {
 потом java начала читать значения из файлики не в той кодировке. Кодировка везде стоит UTF-8
 
 2) assertAll и assertEquals добавить в main/java/prodject/ не получилось,
-т.к. туда не подтягивается библиотека org.junit.jupiter. Ассерты вынес на отдельную страничку.
+т.к. туда не подтягивается библиотека org.junit.jupiter.*
+Ассерты вынес на отдельную страничку.
  */
