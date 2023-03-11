@@ -6,7 +6,7 @@ public class NewBusinessTripSteps {
 
     public void newBusinessTrip (){
         NewBusinessTripPage newBusinessTripPage = new NewBusinessTripPage();
-        newBusinessTripPage.CreateBusinessTrip();
+        newBusinessTripPage.createBusinessTrip();
 
 
 

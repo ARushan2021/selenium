@@ -31,7 +31,6 @@ public class AssertFilledFieldBTPage extends BasePage {
     private WebElement returnDate;
 
     //Нажимаем кнопку сохранить, что-бы введенное значения сохранились в тэгах, атрибутах value, checked
-
     public void CheckedValue() {
         checkedBtn.click();
         loading();
@@ -41,46 +40,31 @@ public class AssertFilledFieldBTPage extends BasePage {
     public String getDivisionField() {
         return divisionValue.getText(); //Значение поля "Подразделение"
     }
+
     public String getOrganizationField() {
         return businessTripCompany.getAttribute("value"); //Значение "Принимающая организация"
     }
     public String getFieldCheckbox() {
         return checkBox.getAttribute("checked");//Значение поля чек-бокс "Задачи"
     }
+
     public String getFieldCityDisposal() {
+
         return departureCity.getAttribute("value");//Значение поля "Город выбытия"
     }
     public String getFieldCityArrival(){
         return arrivalCity.getAttribute("value");//Значение поля "Город выбытия"
     }
-    public String getFieldDepartureDate(){
-        return departureDate.getAttribute("value");//Значение поля "даты выбытия"
+    public String getFieldDepartureDate(){ //Значение поля "даты выбытия" форматируем как в environment.properties
+       String dtDep = departureDate.getAttribute("value");
+       String dtDepField = dtDep.substring(8, 10) + "." + dtDep.substring(5, 7) + "." + dtDep.substring(0, 4);
+       return dtDepField;
     }
-    public String getFieldReturnDate(){
-        return returnDate.getAttribute("value");
+    public String getFieldReturnDate() { //Значение поля "даты прибытия" форматируем как в environment.properties
+        String dtRet = returnDate.getAttribute("value");
+        String dtRetField = dtRet.substring(8, 10) + "." + dtRet.substring(5, 7) + "." + dtRet.substring(0, 4);
+        return dtRetField;
     }
-
-
-
-    //String divisionField = divisionValue.getText(); //Значение поля "Подразделение"
-    //String organizationField = businessTripCompany.getAttribute("value");//Значение "Принимающая организация"
-    //String fieldCheckbox = checkBox.getAttribute("checked");//Значение поля чек-бокс "Задачи"
-    //String fieldCityDisposal = departureCity.getAttribute("value");//Значение поля "Город выбытия"
-    //String fieldCityArrival = arrivalCity.getAttribute("value");//Значение поля "Город прибытия"
-    //String fieldDepartureDate = departureDate.getAttribute("value");//Значение поля "даты выбытия"
-    //String fieldReturnDate = returnDate.getAttribute("value");//Значение поля "даты прибытия"
-
-/*        Assertions.assertAll("Следующее поле заполнено не верно: ",
-                () -> assertEquals("Research & Development", divisionField, "Подразделение"),
-                () -> assertEquals("(Хром) Призрачная Организация Охотников",
-                        organizationField, "Организация"),
-                () -> assertEquals("true", fieldCheckbox, "Поле задача"),
-                () -> assertEquals("Россия, Москва", fieldCityDisposal, "Город выбытия"),
-                () -> assertEquals("Санкт-Петербург", fieldCityArrival, "Город прибытия"),
-                () -> assertEquals("2023-03-04", fieldDepartureDate, "Даты выбытия"),
-                () -> assertEquals("2023-04-04", fieldReturnDate, "Даты прибытия")*/
-
-
 }
 
 

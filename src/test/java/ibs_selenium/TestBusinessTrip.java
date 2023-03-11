@@ -51,7 +51,7 @@ public class TestBusinessTrip {
         driver.findElement(By.xpath("//a[@id='company-selector-show']")).click();
         driver.findElement(By.xpath("//span[@class='select2-chosen']")).click();
         // Заполнение поля "Принимающая организация"
-        driver.findElement(By.xpath("//div[text()='(Хром) Призрачная Организация Охотников']")).click();
+        //driver.findElement(By.xpath("//div[text()='(Хром) Призрачная Организация Охотников']")).click();
         // Проставление чек-бокса "Заказ билетов"
         driver.findElement(By.xpath("//input[@data-name='field__1']")).click();
         // Заполнение поля "Город прибытия"

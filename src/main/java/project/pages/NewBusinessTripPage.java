@@ -23,7 +23,7 @@ public class NewBusinessTripPage extends BasePage {
     @FindBy(xpath = "//h1[@class='user-name']")
     private WebElement headerCreateBusinessTrip;
 
-    public void CreateBusinessTrip (){
+    public void createBusinessTrip (){
         expensesBtn.click();
         wait.until(visibilityOf(menuExpenses));
         businessTripBtn.click();
