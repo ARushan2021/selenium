@@ -4,8 +4,10 @@ import project.pages.AssertFilledFieldBTPage;
 
 public class AssertFilledFieldBTSteps {
 
-    public void assertBT() {
+    public ErrorMessageStep assertBT() {
         AssertFilledFieldBTPage assertFilledFieldBTPage = new AssertFilledFieldBTPage();
         assertFilledFieldBTPage.CheckedValue();
+
+        return new ErrorMessageStep();
     }
 }

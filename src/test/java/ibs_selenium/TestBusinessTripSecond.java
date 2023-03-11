@@ -19,9 +19,9 @@ class TestBusinessTripSecond extends BasePage {
 
     private final Properties properties = getInstance().getProperties();
     private final LoginSteps loginSteps = new LoginSteps();
-    private final NewBusinessTripSteps newBusinessTripSteps = new NewBusinessTripSteps();
-    private final FilledFieldBTSteps filledFieldBTSteps = new FilledFieldBTSteps();
-    private final AssertFilledFieldBTSteps assertFilledFieldBT = new AssertFilledFieldBTSteps();
+    //private final NewBusinessTripSteps newBusinessTripSteps = new NewBusinessTripSteps();
+    //private final FilledFieldBTSteps filledFieldBTSteps = new FilledFieldBTSteps();
+    //private final AssertFilledFieldBTSteps assertFilledFieldBT = new AssertFilledFieldBTSteps();
     private final AssertFilledFieldBTPage assertFilledFieldBTPage = new AssertFilledFieldBTPage();
     private final ErrorMessagePage errorMessagePage = new ErrorMessagePage();
     private final ErrorMessageStep errorMessageStep = new ErrorMessageStep();
@@ -29,20 +29,19 @@ class TestBusinessTripSecond extends BasePage {
     @Test
     void test() {
         //Шаг.1 Авторизация
-        loginSteps.login(properties.getProperty("LOGIN"), properties.getProperty("PASSWORD"));
-        //Шаг.2 Страница "Командировки"
-        newBusinessTripSteps.newBusinessTrip();
-        //Шаг.3 Заполнение полей
-        filledFieldBTSteps.filledField(properties.getProperty("inputArrivalCity"),
-                properties.getProperty("departureDate"), properties.getProperty("returnDate"));
-        //Нажимаем кнопку сохранить, что-бы введенное значения сохранились в тэгах, атрибутах value, checked
-        assertFilledFieldBT.assertBT();
+        loginSteps
+                .login(properties.getProperty("LOGIN"),
+                    properties.getProperty("PASSWORD"))
+                //Шаг.2 Страница "Командировки"
+                .newBusinessTrip()
+                //Шаг.3 Заполнение полей
+                .filledField(properties.getProperty("inputArrivalCity"),
+                            properties.getProperty("departureDate"),
+                            properties.getProperty("returnDate"))
+                //Нажимаем кнопку сохранить, что-бы введенное значения сохранились в тэгах, атрибутах value, checked
+                .assertBT();
 
 
-        //Значения для проверки подтягиваются из environment.properties, кроме двух полей,
-        // которые заполняются на кирилице. Плавающий баг, сначала все было успешно,
-        // потом java начала читать значения из файлики не в той кодировке.
-        // Кодировка везде стоит UTF-8
         assertAll("Следующее поле заполнено не верно: ",
                 () -> assertEquals(properties.getProperty("Division"),
                         assertFilledFieldBTPage.getDivisionField(), "Подразделение"),
@@ -72,3 +71,10 @@ class TestBusinessTripSecond extends BasePage {
     }
 
 }
+/*
+1) Значения для проверки подтягиваются из environment.properties, кроме трех полей,
+которые заполняются на кирилице. Сначала все было успешно,
+потом java начала читать значения из файлики не в той кодировке(Плавающий баг). Кодировка везде стоит UTF-8
+2) assertAll и assertEquals добавить в main/java/prodject/ не получилось,
+т.к. туда не подтягивается библиотека org.junit.jupiter. Ассерты оставил на страничке с тестом.
+ */
