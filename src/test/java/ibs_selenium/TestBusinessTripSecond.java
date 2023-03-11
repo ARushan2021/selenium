@@ -4,14 +4,11 @@ import ibs_selenium.extension.DriverExtension;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import project.BasePage;
-import project.pages.AssertFilledFieldBTPage;
-import project.pages.ErrorMessagePage;
-import project.pages.steps.*;
+import project.pages.steps.ErrorMessageStep;
+import project.pages.steps.LoginSteps;
 
 import java.util.Properties;
 
-import static org.junit.jupiter.api.Assertions.assertAll;
-import static org.junit.jupiter.api.Assertions.assertEquals;
 import static project.properties.TestProperties.getInstance;
 
 @ExtendWith(DriverExtension.class)
@@ -19,8 +16,6 @@ class TestBusinessTripSecond extends BasePage {
 
     private final Properties properties = getInstance().getProperties();
     private final LoginSteps loginSteps = new LoginSteps();
-    private final AssertFilledFieldBTPage assertFilledFieldBTPage = new AssertFilledFieldBTPage();
-    private final ErrorMessagePage errorMessagePage = new ErrorMessagePage();
     private final ErrorMessageStep errorMessageStep = new ErrorMessageStep();
     private final BaseTestAssert baseTestAssert = new BaseTestAssert();
 
@@ -29,13 +24,13 @@ class TestBusinessTripSecond extends BasePage {
         //Авторизация
         loginSteps
                 .login(properties.getProperty("LOGIN"),
-                    properties.getProperty("PASSWORD"))
+                        properties.getProperty("PASSWORD"))
                 //Шаг.2 Страница "Командировки"
                 .newBusinessTrip()
                 //Шаг.3 Заполнение полей
                 .filledField(properties.getProperty("inputArrivalCity"),
-                            properties.getProperty("departureDate"),
-                            properties.getProperty("returnDate"))
+                        properties.getProperty("departureDate"),
+                        properties.getProperty("returnDate"))
                 //Нажимаем кнопку сохранить, что-бы введенное значения сохранились в тэгах, атрибутах value, checked
                 .assertBT();
         // Проверка заполнения полей
@@ -54,5 +49,5 @@ class TestBusinessTripSecond extends BasePage {
 потом java начала читать значения из файлики не в той кодировке. Кодировка везде стоит UTF-8
 
 2) assertAll и assertEquals добавить в main/java/prodject/ не получилось,
-т.к. туда не подтягивается библиотека org.junit.jupiter. Ассерты оставил на страничке с тестом.
+т.к. туда не подтягивается библиотека org.junit.jupiter. Ассерты вынес на отдельную страничку.
  */
