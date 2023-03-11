@@ -1,4 +1,4 @@
-package project;
+package ru.appline.project;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -7,7 +7,7 @@ import java.time.Duration;
 import java.util.Properties;
 
 import static java.lang.System.setProperty;
-import static project.properties.TestProperties.getInstance;
+import static ru.appline.project.properties.TestProperties.getInstance;
 
 public class DriverManager {
 
@@ -29,7 +29,6 @@ public class DriverManager {
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         driver.manage().window().maximize();
     }
-
     public static void closeDriver() {
         driver.quit();
 

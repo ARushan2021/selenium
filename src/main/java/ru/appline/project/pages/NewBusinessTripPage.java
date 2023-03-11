@@ -1,8 +1,8 @@
-package project.pages;
+package ru.appline.project.pages;
 
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import project.BasePage;
+import ru.appline.project.BasePage;
 
 import static org.openqa.selenium.support.ui.ExpectedConditions.visibilityOf;
 

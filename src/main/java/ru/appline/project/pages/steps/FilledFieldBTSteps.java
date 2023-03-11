@@ -1,6 +1,6 @@
-package project.pages.steps;
+package ru.appline.project.pages.steps;
 
-import project.pages.FilledFieldBTPage;
+import ru.appline.project.pages.FilledFieldBTPage;
 
 public class FilledFieldBTSteps {
     public AssertFilledFieldBTSteps filledField (String inputArrivalCity, String departureDate, String returnDate){

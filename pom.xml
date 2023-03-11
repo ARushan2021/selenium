@@ -40,15 +40,20 @@
       <groupId>org.junit.jupiter</groupId>
       <artifactId>junit-jupiter-api</artifactId>
       <version>${junit.jupiter.version}</version>
-      <scope>test</scope>
     </dependency>
     <!-- https://mvnrepository.com/artifact/org.junit.platform/junit-platform-launcher -->
     <dependency>
       <groupId>org.junit.platform</groupId>
       <artifactId>junit-platform-launcher</artifactId>
       <version>1.8.2</version>
-      <scope>test</scope>
     </dependency>
+    <!-- https://mvnrepository.com/artifact/io.qameta.allure/allure-junit5 -->
+    <dependency>
+      <groupId>io.qameta.allure</groupId>
+      <artifactId>allure-junit5</artifactId>
+      <version>2.20.1</version>
+    </dependency>
+
 
   </dependencies>
 
@@ -72,7 +77,7 @@
         <configuration>
           <testFailureIgnore>true</testFailureIgnore>
           <!-- Маска файликов, которые будут запущенны  -->
-          <includes>**/TestBusinessTripSecond.java</includes>
+          <includes>**/Test*.java</includes>
           <argLine>
             <!-- Сколько оперативной памяти выделяем для запуска тестов -->
             -Xmx1024m

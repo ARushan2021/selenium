@@ -1,11 +1,11 @@
-package ibs_selenium.extension;
+package ru.ibs_selenium.extension;
 
 import org.junit.jupiter.api.extension.AfterAllCallback;
 import org.junit.jupiter.api.extension.BeforeAllCallback;
 import org.junit.jupiter.api.extension.ExtensionContext;
 
-import static project.DriverManager.closeDriver;
-import static project.DriverManager.getWebDriver;
+import static ru.appline.project.DriverManager.closeDriver;
+import static ru.appline.project.DriverManager.getWebDriver;
 
 public class DriverExtension implements BeforeAllCallback, AfterAllCallback {
 

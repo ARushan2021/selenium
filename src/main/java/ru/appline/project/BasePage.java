@@ -1,4 +1,4 @@
-package project;
+package ru.appline.project;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -8,7 +8,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import static java.time.Duration.ofSeconds;
 import static org.openqa.selenium.support.PageFactory.initElements;
 import static org.openqa.selenium.support.ui.ExpectedConditions.invisibilityOf;
-import static project.DriverManager.getWebDriver;
+import static ru.appline.project.DriverManager.getWebDriver;
 
 public class BasePage {
 

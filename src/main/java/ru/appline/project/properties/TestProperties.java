@@ -1,4 +1,4 @@
-package project.properties;
+package ru.appline.project.properties;
 
 import java.io.FileInputStream;
 import java.io.IOException;

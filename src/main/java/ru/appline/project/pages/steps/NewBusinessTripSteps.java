@@ -1,6 +1,6 @@
-package project.pages.steps;
+package ru.appline.project.pages.steps;
 
-import project.pages.NewBusinessTripPage;
+import ru.appline.project.pages.NewBusinessTripPage;
 
 public class NewBusinessTripSteps {
 
