@@ -1,21 +1,32 @@
 package ru.ibs_selenium;
+
 import io.qameta.allure.Step;
-import org.junit.jupiter.api.*;
-import static org.junit.jupiter.api.Assertions.assertAll;
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
 import java.time.Duration;
+
+import static org.junit.jupiter.api.Assertions.assertAll;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.openqa.selenium.support.ui.ExpectedConditions.invisibilityOf;
 import static org.openqa.selenium.support.ui.ExpectedConditions.visibilityOf;
 
+@DisplayName("Проверка заполнения новой заявки на командировку (1)")
 public class TestBusinessTrip {
+
+
     private WebDriver driver;
     private WebDriverWait wait;
+
     @BeforeEach
+
     public void before() {
         // Открываем нужную страницу и разворачиваем ее во весь экран
         System.setProperty("webdriver.chrome.driver", "src/main/java/resources/chromedriver.exe");
@@ -25,6 +36,7 @@ public class TestBusinessTrip {
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         driver.manage().window().maximize();
     }
+
     @Test
     public void test() {
         //Шаг.1 Авторизация
@@ -116,16 +128,19 @@ public class TestBusinessTrip {
         String field_validation_failed = driver.findElement(
                 By.xpath("//div/div/fieldset/div/div/div/span[@class='validation-failed']")).getText();
         String validation_failed = "Список командируемых сотрудников не может быть пустым";
-        assertEquals( validation_failed, field_validation_failed, "Нет сообщения сообщение:" +
+        assertEquals(validation_failed, field_validation_failed, "Нет сообщения сообщение:" +
                 "'Список командируемых сотрудников не может быть пустым'");
 
         System.out.println("Сообщение:" +
                 " 'Список командируемых сотрудников не может быть пустым' успешно сформировалось!!!");
     }
+
+    //@Step("333")
     @AfterEach
     public void after() {
         driver.quit();
     }
+
     public void loading() {
         //Проверка загрузки
         wait.until(invisibilityOf(driver.findElement(

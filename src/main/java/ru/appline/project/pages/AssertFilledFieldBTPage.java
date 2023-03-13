@@ -46,7 +46,7 @@ public class AssertFilledFieldBTPage extends BasePage {
     private WebElement validationFailed;
 
     //Нажимаем кнопку сохранить, что-бы введенное значения сохранились в тэгах, атрибутах value, checked
-    @Step
+    @Step ("шаг5 Нажимаем кнопку сохранить")
     public void CheckedValue() {
         checkedBtn.click();
         loading();
@@ -60,8 +60,7 @@ public class AssertFilledFieldBTPage extends BasePage {
     String dtRet = returnDate.getAttribute("value");
     String dtRetField = dtRet.substring(8, 10) + "." + dtRet.substring(5, 7) + "." + dtRet.substring(0, 4);
 
-    //Проверяем какими значениями заполнились поля командировки
-    @Step
+    @Step("шаг6 Проверка всех введенных полей")
     public void AssertAllBT() {
         assertAll("Следующее поле заполнено не верно: ",
                 () -> assertEquals(properties.getProperty("Division"),
@@ -77,22 +76,20 @@ public class AssertFilledFieldBTPage extends BasePage {
                 () -> assertEquals(properties.getProperty("departureDate"), dtDepField, "Даты выбытия"),
                 () -> assertEquals(properties.getProperty("returnDate"), dtRetField, "Даты прибытия"));
     }
-    //Нажимаем кнопку "Сохранить и закрыть"
+    @Step("шаг7 Нажимаем кнопку 'Сохранить и закрыть'")
     public void saveAndClose() {
         saveAndCloseBtn.click();
         loading();}
-    //Проверка, что на странице появилось сообщение: "Список командируемых сотрудников не может быть пустым"
+    @Step("шаг8 Проверка сообщения сообщение: 'Список командируемых сотрудников не может быть пустым'")
     public void assertEqualsBT() {
         String validation_failed = "Список командируемых сотрудников не может быть пустым";
         assertEquals(validation_failed, validationFailed.getText(), "Нет сообщения сообщение:" +
                 "'Список командируемых сотрудников не может быть пустым'");
     }
-    //Выводим сообщение, что все успешно
+    @Step("шаг9 Выводим сообщение, что все успешно")
     public void printMessage() {
         System.out.println("Сообщение:" +
                 " 'Список командируемых сотрудников не может быть пустым' успешно сформировалось!!!");
-
-
     }
 }
 

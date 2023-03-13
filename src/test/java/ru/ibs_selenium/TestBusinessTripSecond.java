@@ -1,5 +1,6 @@
 package ru.ibs_selenium;
 
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import ru.appline.project.pages.steps.NewBusinessTripSteps;
@@ -9,12 +10,14 @@ import java.util.Properties;
 
 import static ru.appline.project.properties.TestProperties.getInstance;
 
+@DisplayName("Проверка заполнения новой заявки на командировку (2)")
 @ExtendWith(DriverExtension.class)
 class TestBusinessTripSecond extends BaseTest {
 
     private final Properties properties = getInstance().getProperties();
     private final BaseTest baseTest = new BaseTest();
     private final NewBusinessTripSteps newBusinessTripSteps = new NewBusinessTripSteps();
+
 
     @Test
     void test() {

@@ -1,5 +1,7 @@
 package ru.appline.project.pages;
 
+import io.qameta.allure.Description;
+import io.qameta.allure.Step;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import ru.appline.project.BasePage;
@@ -23,6 +25,7 @@ public class NewBusinessTripPage extends BasePage {
     @FindBy(xpath = "//h1[@class='user-name']")
     private WebElement headerCreateBusinessTrip;
 
+    @Step("шаг3 Открываем страницу для новой командировки")
     public void createBusinessTrip (){
         expensesBtn.click();
         wait.until(visibilityOf(menuExpenses));

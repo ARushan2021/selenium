@@ -1,5 +1,7 @@
 package ru.ibs_selenium;
 
+import io.qameta.allure.Description;
+import io.qameta.allure.Step;
 import ru.appline.project.BasePage;
 import ru.appline.project.pages.steps.LoginSteps;
 
@@ -11,7 +13,6 @@ class BaseTest extends BasePage {
 
     private final Properties properties = getInstance().getProperties();
     private final LoginSteps loginSteps = new LoginSteps();
-
 
     public void authorization() {
         //Авторизация
