@@ -1,5 +1,6 @@
 package ru.ibs_selenium;
 
+import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -11,7 +12,10 @@ import java.util.Properties;
 import static ru.appline.project.properties.TestProperties.getInstance;
 
 @DisplayName("Проверка заполнения новой заявки на командировку (2)")
+@Link("http://training.appline.ru/")
+@Owner("Абдурахманов Рушан")
 @ExtendWith(DriverExtension.class)
+
 class TestBusinessTripSecond extends BaseTest {
 
     private final Properties properties = getInstance().getProperties();
@@ -20,6 +24,9 @@ class TestBusinessTripSecond extends BaseTest {
 
 
     @Test
+    @Severity(SeverityLevel.CRITICAL)
+    @Description("Тест проверяет, " +
+            "что нельзя зарегистрировать новую командировку не заполнив поля командируемых сотрудников")
     void test() {
         //Авторизация
         baseTest.authorization();
