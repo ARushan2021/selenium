@@ -1,0 +1,6 @@
+ru\ibs_selenium\TestBusinessTrip.class
+ru\ibs_selenium\extension\AllureExtension.class
+ru\ibs_selenium\extension\DriverExtension.class
+ru\ibs_selenium\TestBusinessTripSecond.class
+ru\ibs_selenium\BaseTest.class
+ru\ibs_selenium\extension\AllureExtension$TestResultStatus.class

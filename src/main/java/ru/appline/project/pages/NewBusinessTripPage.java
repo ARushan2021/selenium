@@ -1,6 +1,5 @@
 package ru.appline.project.pages;
 
-import io.qameta.allure.Description;
 import io.qameta.allure.Step;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;

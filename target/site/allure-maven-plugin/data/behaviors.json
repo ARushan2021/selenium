@@ -1,0 +1,29 @@
+{
+  "uid" : "b1a8273437954620fa374b796ffaacdd",
+  "name" : "behaviors",
+  "children" : [ {
+    "name" : "Курс: selenium",
+    "children" : [ {
+      "name" : "Заполнение полей training.appline.ru",
+      "children" : [ {
+        "name" : "Заполнение Командировки",
+        "children" : [ {
+          "name" : "test()",
+          "uid" : "85d09487c03c83b5",
+          "parentUid" : "ddd2875c6e46314256bc3d43a3b64b8c",
+          "status" : "passed",
+          "time" : {
+            "start" : 1678900929600,
+            "stop" : 1678900971721,
+            "duration" : 42121
+          },
+          "flaky" : false,
+          "parameters" : [ ]
+        } ],
+        "uid" : "ddd2875c6e46314256bc3d43a3b64b8c"
+      } ],
+      "uid" : "6a678cd89a6a0e5e63bb8f033e26119d"
+    } ],
+    "uid" : "8339f976a6ffc49a3311d75ae339be99"
+  } ]
+}

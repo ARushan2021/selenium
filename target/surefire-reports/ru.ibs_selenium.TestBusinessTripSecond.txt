@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: ru.ibs_selenium.TestBusinessTripSecond
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 51.549 s - in ru.ibs_selenium.TestBusinessTripSecond

@@ -15,6 +15,7 @@ public class AssertFilledFieldBTPage extends BasePage {
 
     private final Properties properties = getInstance().getProperties();
 
+
     @FindBy(xpath = "//button[@class='btn btn-success main-group action-button']")
     public WebElement checkedBtn;
 
@@ -45,8 +46,17 @@ public class AssertFilledFieldBTPage extends BasePage {
     @FindBy(xpath = "//div/div/fieldset/div/div/div/span[@class='validation-failed']")
     private WebElement validationFailed;
 
+    @FindBy(xpath = "//a[contains(text(), 'Командированные сотрудники')]")
+    private WebElement businessTripEmployees;
+
+    @FindBy(xpath = "//a[contains(text(), 'Основная информация')]")
+    private WebElement MainInformation;
+
+    @FindBy(xpath = "//a[contains(text(), 'Сведения')]")
+    private WebElement Informations;
+
     //Нажимаем кнопку сохранить, что-бы введенное значения сохранились в тэгах, атрибутах value, checked
-    @Step ("шаг5 Нажимаем кнопку сохранить")
+    @Step("шаг5 Нажимаем кнопку сохранить")
     public void CheckedValue() {
         checkedBtn.click();
         loading();
@@ -62,13 +72,17 @@ public class AssertFilledFieldBTPage extends BasePage {
 
     @Step("шаг6 Проверка всех введенных полей")
     public void AssertAllBT() {
+        MainInformation.click();
         assertAll("Следующее поле заполнено не верно: ",
                 () -> assertEquals(properties.getProperty("Division"),
                         divisionValue.getText(), "Подразделение"),
                 () -> assertEquals("(Хром) Призрачная Организация Охотников",
                         businessTripCompany.getAttribute("value"), "Организация"),
                 () -> assertEquals(properties.getProperty("Checkbox"),
-                        checkBox.getAttribute("checked"), "Поле задача"),
+                        checkBox.getAttribute("checked"), "Поле задача"));
+
+        Informations.click();
+        assertAll("Следующее поле заполнено не верно: ",
                 () -> assertEquals("Россия, Москва",
                         departureCity.getAttribute("value"), "Город выбытия"),
                 () -> assertEquals(properties.getProperty("inputArrivalCity"),
@@ -76,16 +90,23 @@ public class AssertFilledFieldBTPage extends BasePage {
                 () -> assertEquals(properties.getProperty("departureDate"), dtDepField, "Даты выбытия"),
                 () -> assertEquals(properties.getProperty("returnDate"), dtRetField, "Даты прибытия"));
     }
+
     @Step("шаг7 Нажимаем кнопку 'Сохранить и закрыть'")
     public void saveAndClose() {
         saveAndCloseBtn.click();
-        loading();}
+        loading();
+    }
+
     @Step("шаг8 Проверка сообщения сообщение: 'Список командируемых сотрудников не может быть пустым'")
     public void assertEqualsBT() {
+        businessTripEmployees.click();
         String validation_failed = "Список командируемых сотрудников не может быть пустым";
         assertEquals(validation_failed, validationFailed.getText(), "Нет сообщения сообщение:" +
                 "'Список командируемых сотрудников не может быть пустым'");
+
+
     }
+
     @Step("шаг9 Выводим сообщение, что все успешно")
     public void printMessage() {
         System.out.println("Сообщение:" +

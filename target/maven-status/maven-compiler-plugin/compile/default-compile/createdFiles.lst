@@ -1,0 +1,12 @@
+ru\appline\project\pages\FilledFieldBTPage.class
+ru\appline\project\pages\AssertFilledFieldBTPage.class
+ru\appline\project\pages\NewBusinessTripPage.class
+ru\appline\project\pages\steps\LoginSteps.class
+ru\appline\project\pages\steps\AssertFilledFieldBTSteps.class
+ru\appline\project\properties\TestProperties.class
+ru\appline\project\BasePage.class
+ru\appline\project\pages\steps\FilledFieldBTSteps.class
+org\example\App.class
+ru\appline\project\DriverManager.class
+ru\appline\project\pages\steps\NewBusinessTripSteps.class
+ru\appline\project\pages\LoginPage.class

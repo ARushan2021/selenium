@@ -1,0 +1,21 @@
+{
+  "uid" : "98d3104e051c652961429bf95fa0b5d6",
+  "name" : "suites",
+  "children" : [ {
+    "name" : "Проверка заполнения новой заявки на командировку (2)",
+    "children" : [ {
+      "name" : "test()",
+      "uid" : "85d09487c03c83b5",
+      "parentUid" : "a6c7aab40dbe4ab3d928f29ad917f27f",
+      "status" : "passed",
+      "time" : {
+        "start" : 1678900929600,
+        "stop" : 1678900971721,
+        "duration" : 42121
+      },
+      "flaky" : false,
+      "parameters" : [ ]
+    } ],
+    "uid" : "a6c7aab40dbe4ab3d928f29ad917f27f"
+  } ]
+}

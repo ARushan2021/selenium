@@ -1,0 +1,2 @@
+"Status","Name","Duration in ms","Description"
+"passed","ru.ibs_selenium.TestBusinessTripSecond.test","42121","Тест проверяет, что нельзя зарегистрировать новую командировку не заполнив поля командируемых сотрудников"

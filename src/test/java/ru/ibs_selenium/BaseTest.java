@@ -1,7 +1,5 @@
 package ru.ibs_selenium;
 
-import io.qameta.allure.Description;
-import io.qameta.allure.Step;
 import ru.appline.project.BasePage;
 import ru.appline.project.pages.steps.LoginSteps;
 

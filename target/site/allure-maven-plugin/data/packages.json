@@ -1,0 +1,21 @@
+{
+  "uid" : "83edc06c07f9ae9e47eb6dd1b683e4e2",
+  "name" : "packages",
+  "children" : [ {
+    "name" : "ru.ibs_selenium.TestBusinessTripSecond",
+    "children" : [ {
+      "name" : "test",
+      "uid" : "85d09487c03c83b5",
+      "parentUid" : "47f1edd0610a081d69917bc82ff48267",
+      "status" : "passed",
+      "time" : {
+        "start" : 1678900929600,
+        "stop" : 1678900971721,
+        "duration" : 42121
+      },
+      "flaky" : false,
+      "parameters" : [ ]
+    } ],
+    "uid" : "ru.ibs_selenium.TestBusinessTripSecond"
+  } ]
+}
